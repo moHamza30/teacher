@@ -1,0 +1,7 @@
+node_modules/
+frontend/my-project/dist/
+frontend/my-project/node_modules/
+backend/node_modules/
+back-end/uploads
+back-end/uploads/videos
+
