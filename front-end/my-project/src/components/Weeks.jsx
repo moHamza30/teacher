@@ -20,14 +20,14 @@ const Weeks = ({ weeks, courseId }) => {
       setOpenWeeks(openWeeks.filter((i) => i !== index));
     } else setOpenWeeks([...openWeeks, index]);
   };
-  const isBooked = user?.data.bookedCourses?.some((course) => {
+  const isBooked = user?.bookedCourses?.some((course) => {
     return course === courseId;
   });
 
   console.log(weeks);
   console.log(courseId);
   console.log(isBooked);
-  console.log(user.data.bookedCourses);
+  console.log(user?.bookedCourses);
   console.log(user);
   return (
     <div className="py-4">
