@@ -31,20 +31,20 @@ app.use('/uploads/videos', express.static(path.join(__dirname, 'uploads/videos')
 
 // heroku
 // if(process.env.NODE_ENV==="production"){
-//   app.use(express.static(path.join(__dirname, '../front-end/my-project/dist'))); // or '../frontend/my-project/build' if you use 'build'
-//  w app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../fron-tend/my-project/dist', 'index.html'));  // or '../frontend/my-project/build' if changed
-//   });
+// 
 // }
 
 //  routes
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+
 app.use("/users", userRoutes);
 app.use("/courses", CoursesRoutes);
 app.use("/weeks", WeekRoutes);
 app.use("/homework", homeworkRoutes);
+
+app.use(express.static(path.join(__dirname, '../front-end/my-project/dist'))); 
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../fron-tend/my-project/dist', 'index.html')); 
+  });
 
 // stripe
 app.post("/create-payment-intent", async (req, res) => {
@@ -60,6 +60,7 @@ app.post("/create-payment-intent", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 app.use(globalErrorHandler);
 // Start the server
