@@ -14,6 +14,7 @@ const MonthsList = () => {
   const goToCourse = (courseId) => {
     navigate(`/courseDetails/${courseId}`);
   };
+
   const bookCourse = (amount,courseId)=>{
     axios.post("http://localhost:8000/create-payment-intent",{amount})
     .then((res)=>{

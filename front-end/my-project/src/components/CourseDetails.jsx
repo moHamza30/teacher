@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 const CourseDetails = () => {
   const { courses } = useContext(Courses_Context);
   const { courseId } = useParams();
-  console.log(courseId);
   const course = courses.find((course) => course._id === courseId);
   return (
     <div className="container mt-[85px] bg-[#efefef]">
