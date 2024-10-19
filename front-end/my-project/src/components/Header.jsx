@@ -52,7 +52,7 @@ const Header = () => {
             <Link to="/admin-dashboard">log out</Link>
           </div>
         )}
-        {user?.data?.role === "Admin" && (
+        {user?.role === "Admin" && (
           <div className="text-lg font-semibold bg-primary rounded-md px-4 py-2">
             <Link to="/admin-dashboard">admin Dashboard</Link>
           </div>
