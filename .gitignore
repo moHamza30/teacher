@@ -9,7 +9,6 @@ yarn.lock
 .pnpm-lock.yaml
 .DS_Store
 
-back-end/uploads/
 
 front-end/dist/
 # Optional npm cache directory
