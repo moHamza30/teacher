@@ -36,12 +36,6 @@ app.use("/courses", CoursesRoutes);
 app.use("/weeks", WeekRoutes);
 app.use("/homework", homeworkRoutes);
 
-// app.use(express.static(path.join(__dirname, "../front-end/my-project/dist")));
-// app.get("*", (req, res) => {
-//   res.sendFile(
-//     path.join(__dirname, "../fron-tend/my-project/dist", "index.html")
-//   );
-// });
 
 // stripe
 app.post("/create-payment-intent", async (req, res) => {

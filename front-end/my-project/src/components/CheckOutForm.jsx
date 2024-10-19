@@ -50,9 +50,9 @@ const CheckoutForm = () => {
             },
           }
         );
-        console.log(response.data);
+        console.log(response.data.data);
         if (response.status === 200) {
-          setUser(response.data);
+          setUser(response.data.data);
           setSuccess("Payment successful!");
           setError("");
         } else {

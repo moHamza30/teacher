@@ -12,24 +12,7 @@ const addCourse = async (req, res, next) => {
   res.status(201).json(newCourse);
 };
 
-const addWeektoCourse = async (req, res, next) => {
-  const { courseId } = req.params;
-  const { weekNumber } = req.body;
 
-  // Create new week
-  const newWeek = new Week({ weekNumber, course: courseId });
-  await newWeek.save();
-  if (!newWeek) return next(new AppError("can not create week", 400));
-
-  // Add week to course
-  const course = await Course.findById(courseId);
-  if (!course) return next(new AppError("can not find course", 400));
-
-  course.weeks.push(newWeek._id);
-  await course.save();
-
-  res.status(201).json(newWeek);
-};
 const getAllCourses = async (req, res, next) => {
   const courses = await Course.find().populate({
     path: "weeks",
@@ -275,7 +258,6 @@ const createCourse = async (req, res) => {
 
 module.exports = {
   addCourse,
-  addWeektoCourse,
   getAllCourses,
   createCourse,
   editCourse
