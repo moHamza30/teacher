@@ -6,7 +6,6 @@ import axios from "axios";
 const EditUser = () => {
   const navigate = useNavigate();
   const { userToEdit } = useContext(User_Context);
-  console.log(userToEdit);
   const [userData, setUserData] = useState({
     firstName: userToEdit?.firstName || "",
     lastName: userToEdit?.lastName || "",
@@ -16,7 +15,6 @@ const EditUser = () => {
     grade: userToEdit?.grade || "",
     city: userToEdit?.city || "",
   });
-console.log(userData)
   const handleChange = (e) => {
     setUserData({
       ...userData,
@@ -26,7 +24,6 @@ console.log(userData)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userData);
     const id = userToEdit?._id;
     axios
       .put(`http://localhost:8000/users/${id}`,userData, {

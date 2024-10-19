@@ -217,22 +217,13 @@ const AddCourse = () => {
         }
       });
     });
-    // const courseData = {
-    //   title,
-    //   description,
-    //   grade,
-    //   price,
-    //   weeks: weeks,
-    // };
-    // console.log(weeks);
-    // console.log(courseData);
+
     try {
       const response = await axios.post(
         "http://localhost:8000/courses",
         formData
       );
-      console.log(response);
-      console.log(formData);
+
       // Reset form
       setTitle("");
       setDescription("");
@@ -411,9 +402,7 @@ const AddCourse = () => {
                   type="file"
                   name="video"
                   placeholder="Video "
-                  onChange={(e) =>
-                    handleFileChange(weekIndex, lectureIndex, e)
-                  }
+                  onChange={(e) => handleFileChange(weekIndex, lectureIndex, e)}
                   className="p-3 rounded bg-gray-500 border border-gray-400 w-full"
                 />
               </div>

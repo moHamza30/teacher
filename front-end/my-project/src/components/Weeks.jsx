@@ -24,11 +24,6 @@ const Weeks = ({ weeks, courseId }) => {
     return course === courseId;
   });
 
-  console.log(weeks);
-  console.log(courseId);
-  console.log(isBooked);
-  console.log(user?.bookedCourses);
-  console.log(user);
   return (
     <div className="py-4">
       <h1 className="text-4xl font-bold my-10">محتوى الكورس</h1>

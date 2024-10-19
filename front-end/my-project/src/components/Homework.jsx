@@ -6,9 +6,7 @@ import { useParams } from 'react-router-dom';
 
 const Homework = () => {
   const {courseId,weekId,lecId} = useParams()
-  console.log(courseId)
-  console.log(weekId)
-  console.log(lecId)
+
 
     const {user} = useContext(User_Context)
     const [score,setScore] = useState("")
@@ -16,16 +14,12 @@ const Homework = () => {
   const { courses } = useContext(Courses_Context);
 
   const course = courses?.find(course => course._id === courseId);
-console.log(courses)
   const week = course?.weeks?.find(week => week._id === weekId);
-  console.log(week)
 
   const lecture = week?.lectures?.find(lec => lec._id === lecId);
-  console.log(lecture)
 
   const {homework} = lecture
 
-  console.log(homework)
   const [userAnswers, setUserAnswers] = useState({}); // Track user-selected answers
 
   const handleSelectAnswer = (questionId, optionIndex) => {

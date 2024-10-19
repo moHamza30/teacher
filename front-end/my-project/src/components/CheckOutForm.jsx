@@ -18,9 +18,6 @@ const CheckoutForm = () => {
   const course = courses.find((course) => {
     return course._id === courseId;
   });
-  console.log(course);
-  console.log(courseId);
-  console.log(clientSecret);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

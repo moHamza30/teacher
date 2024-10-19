@@ -55,8 +55,7 @@ router.put("/:id", upload.any() ,editCourse);
 // get all courses
 router.get('/',getAllCourses );
 
-// Add a week to a course
-router.post('/:courseId/weeks',addWeektoCourse );
+
 
 
 

@@ -1,8 +1,7 @@
 {
   "scripts": {
-    "start": "node back-end/index.js",
-    "dev": "nodemon back-end/index.js",
-    "build": "npm install && npm install --prefix  front-end/my-project && npm run build --prefix  front-end/my-project",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "debug": "nodemon --inspect index.js"
   },
   "dependencies": {

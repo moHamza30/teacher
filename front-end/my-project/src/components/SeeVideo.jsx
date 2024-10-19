@@ -4,10 +4,8 @@ import { useLocation } from "react-router-dom";
 const SeeVideo = () => {
   const location = useLocation();
   const vidoePath = location.state;
-  console.log(vidoePath);
   const BASE_URL = "http://localhost:8000";
   const fullVideoUrl = `${BASE_URL}${vidoePath}`;
-  console.log(fullVideoUrl);
 
   return (
     <div className="mt-[90px] h-screen bg-slate-500 flex justify-center items-center">

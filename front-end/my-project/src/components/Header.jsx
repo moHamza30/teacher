@@ -7,7 +7,7 @@ import { User_Context } from "../Contexts/UserContext";
 
 const Header = () => {
   const { user, setUser } = useContext(User_Context);
-  console.log(user)
+
   const navigate = useNavigate();
   const [showList, setShowList] = useState(false);
   return (

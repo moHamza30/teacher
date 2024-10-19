@@ -26,25 +26,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-// app.use(express.static(path.join(__dirname, "../uploads/videos"))); 
-app.use('/uploads/videos', express.static(path.join(__dirname, 'uploads/videos')));
-
-// heroku
-// if(process.env.NODE_ENV==="production"){
-// 
-// }
-
-//  routes
+app.use(
+  "/uploads/videos",
+  express.static(path.join(__dirname, "uploads/videos"))
+);
 
 app.use("/users", userRoutes);
 app.use("/courses", CoursesRoutes);
 app.use("/weeks", WeekRoutes);
 app.use("/homework", homeworkRoutes);
 
-app.use(express.static(path.join(__dirname, '../front-end/my-project/dist'))); 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../fron-tend/my-project/dist', 'index.html')); 
-  });
+// app.use(express.static(path.join(__dirname, "../front-end/my-project/dist")));
+// app.get("*", (req, res) => {
+//   res.sendFile(
+//     path.join(__dirname, "../fron-tend/my-project/dist", "index.html")
+//   );
+// });
 
 // stripe
 app.post("/create-payment-intent", async (req, res) => {
@@ -60,7 +57,6 @@ app.post("/create-payment-intent", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-
 
 app.use(globalErrorHandler);
 // Start the server

@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [currentPath, setCuttentPath] = useState("");
-  console.log(currentPath);
   return (
     <div className={`left-0 bg-gray-800 p-4 border-2 border-gray-700`}>
       {isSidebarOpen && (

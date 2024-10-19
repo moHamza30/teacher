@@ -7,7 +7,6 @@ const EditCourse = () => {
   const { getCourses, courses } = useContext(Courses_Context);
   const [editedCourseTitle, setEditedCourseTitle] = useState("");
   const [editedCourse, setEditedCourse] = useState(null);
-  console.log(courses);
   useEffect(() => {
     getCourses();
   }, []);
@@ -26,15 +25,11 @@ const EditCourse = () => {
     }
   }, [editedCourse]);
 
-  console.log(editedCourseTitle);
-  console.log(editedCourse);
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [grade, setGrade] = useState("الاول الثانوى");
   const [weeks, setWeeks] = useState([]);
-  console.log(weeks)
 
   // Handle course title, description, and grade input
   const handleCourseChange = (e) => {
@@ -214,14 +209,7 @@ const EditCourse = () => {
        }
       })
     })
-    // const courseData = {
-    //   title,
-    //   description,
-    //   grade,
-    //   weeks: weeks,
-    // };
-    console.log(weeks);
-    // console.log(courseData);
+ 
     try {
       const response = await axios.put(
         `http://localhost:8000/courses/${editedCourse._id}`,

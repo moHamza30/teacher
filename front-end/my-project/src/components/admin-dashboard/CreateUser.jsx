@@ -14,7 +14,7 @@ const CreateUser = () => {
     password: "",
     repassword: "",
   });
-console.log(userData)
+
   const handleChange = (e) => {
     setuserData({
       ...userData,
