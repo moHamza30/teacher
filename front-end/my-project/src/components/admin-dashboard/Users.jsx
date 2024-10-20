@@ -4,7 +4,7 @@ import { User_Context } from "../../Contexts/UserContext";
 import axios from "axios";
 
 const Users = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { allUsers, setAllUsers, setuserToEdit } = useContext(User_Context);
   const roles = ["Admin", "user"];
   useEffect(() => {
@@ -32,16 +32,20 @@ const Users = () => {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
-  const changeRole = (userId, newRole)=>{
+  const changeRole = (userId, newRole) => {
     axios
-      .put(`http://localhost:8000/users/${userId}`,{role:newRole},{
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+      .put(
+        `http://localhost:8000/users/${userId}`,
+        { role: newRole },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-  }
+  };
   return (
     <div className="p-6 bg-gray-800 text-gray-200 h-full " dir="ltr">
       <h1 className="text-2xl font-bold mb-4">User Management</h1>
@@ -69,7 +73,7 @@ const Users = () => {
                 <td className="py-2 px-4">{user.phone}</td>
                 <td className="py-2 px-4">{user.grade}</td>
                 <td className="py-2 px-4">{user.city}</td>
-        
+
                 <td className="py-2 px-4 flex items-center">
                   <div className="relative">
                     <select
@@ -77,13 +81,12 @@ const Users = () => {
                       name="role"
                       id="role"
                       onChange={(e) => changeRole(user._id, e.target.value)} // Call changeRole on change
-
                     >
                       <option value="admin">{user.role}</option>
                       {roles.map(
                         (role, index) =>
                           role !== user.role && (
-                            <option  key={index} value={role}>
+                            <option key={index} value={role}>
                               {role}
                             </option>
                           )
@@ -103,7 +106,7 @@ const Users = () => {
                     }}
                   >
                     {" "}
-                    <Link to={`/admin-dashboard/Edit-user/${user._id}`}>Edit</Link>
+                    <Link to={`/admin-dashboard/Edit-user`}>Edit</Link>
                   </button>
                   <button
                     onClick={() => deleteUser(user?._id)}
