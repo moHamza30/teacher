@@ -23,7 +23,7 @@ import EditCourse from "./components/admin-dashboard/EditCourse";
 import Homework from "./components/Homework";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "./components/CheckOutForm";
+// import CheckoutForm from "./components/CheckOutForm";
 import SeeVideo from "./components/SeeVideo";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
@@ -48,7 +48,7 @@ const App = () => {
           path="/course/:courseId/weeks/:weekId/lecs/:lecId/homework"
           element={<Homework />}
         />
-        <Route path="/checkoutForm" element={<CheckoutForm />} />
+        {/* <Route path="/checkoutForm" element={<CheckoutForm />} /> */}
 
         <Route path="/admin-dashboard" element={<AdminDashboard />}>
           <Route index element={<Users />} />

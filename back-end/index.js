@@ -38,19 +38,19 @@ app.use("/homework", homeworkRoutes);
 
 
 // stripe
-app.post("/create-payment-intent", async (req, res) => {
-  const { amount } = req.body; // Amount in cents (e.g., $50 = 5000 cents)
+// app.post("/create-payment-intent", async (req, res) => {
+//   const { amount } = req.body; // Amount in cents (e.g., $50 = 5000 cents)
 
-  try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency: "usd",
-    });
-    res.json({ clientSecret: paymentIntent.client_secret });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+//   try {
+//     const paymentIntent = await stripe.paymentIntents.create({
+//       amount,
+//       currency: "usd",
+//     });
+//     res.json({ clientSecret: paymentIntent.client_secret });
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 app.use(globalErrorHandler);
 // Start the server

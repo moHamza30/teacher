@@ -20,9 +20,9 @@ const Weeks = ({ weeks, courseId }) => {
       setOpenWeeks(openWeeks.filter((i) => i !== index));
     } else setOpenWeeks([...openWeeks, index]);
   };
-  const isBooked = user?.bookedCourses?.some((course) => {
-    return course === courseId;
-  });
+  // const isBooked = user?.bookedCourses?.some((course) => {
+  //   return course === courseId;
+  // });
 
   return (
     <div className="py-4">
@@ -87,18 +87,19 @@ const Weeks = ({ weeks, courseId }) => {
                         <div className={` p-4 bg-gray-300 rounded-md`}>
                           <div className="underline font-semibold flex items-center gap-3">
                             <BiSolidLeftArrow />
-                            {isBooked ? (
-                              <Link
-                                to="/seeVideo"
-                                state={lecture.video
-                                }
-                              >
-                                مشاهدة الفديو
-                              </Link>
-                   
-                            ) : (
-                              <p>يجب شراء الكورس لتتمكن من مشاهدة الدرس</p>
-                            )}
+                            {/* {isBooked ? ( */}
+                            <Link
+                              to="/seeVideo"
+                              onClick={() => console.log(lecture.video)}
+                              state={lecture.video}
+                            >
+                              مشاهدة الفديو
+                            </Link>
+                            
+
+                            {/* // ) : (
+                            //   <p>يجب شراء الكورس لتتمكن من مشاهدة الدرس</p>
+                            // )} */}
                           </div>
                           <div className="underline font-semibold flex items-center gap-3">
                             <BiSolidLeftArrow />
@@ -124,7 +125,6 @@ const Weeks = ({ weeks, courseId }) => {
           </ul>
         ))
       )}
-    
     </div>
   );
 };
